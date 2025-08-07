@@ -9,6 +9,7 @@ let timeLeft;
 
 const settingsBar = document.getElementById("settingsBar");
 const showSettingsBtn = document.getElementById("showSettingsBtn");
+const body = document.body;
 
 function startTimer() {
   workDuration = parseInt(document.getElementById("workInput").value);
@@ -18,7 +19,6 @@ function startTimer() {
   currentSession = 0;
   isBreak = false;
 
-  // Hide settings bar
   settingsBar.style.display = "none";
   showSettingsBtn.style.display = "block";
 
@@ -28,6 +28,7 @@ function startTimer() {
 function startInterval(duration) {
   clearInterval(timer);
   timeLeft = duration;
+  updateTheme(); // Apply correct theme
   updateDisplay();
 
   timer = setInterval(() => {
@@ -39,6 +40,7 @@ function startInterval(duration) {
       if (!isBreak) {
         currentSession++;
         if (currentSession >= sessions) {
+          isBreak = true;
           document.getElementById("status").textContent = "All sessions done!";
           return;
         }
@@ -63,12 +65,21 @@ function updateDisplay() {
     : `Work (${currentSession + 1}/${sessions})`;
 }
 
+function updateTheme() {
+  if (isBreak) {
+    body.classList.add("light-mode");
+  } else {
+    body.classList.remove("light-mode");
+  }
+}
+
 function resetTimer() {
   clearInterval(timer);
   document.getElementById("timer").textContent = "00:00";
   document.getElementById("status").textContent = "Reset";
   settingsBar.style.display = "block";
   showSettingsBtn.style.display = "none";
+  body.classList.remove("light-mode"); // Reset to dark mode
 }
 
 function showSettings() {
