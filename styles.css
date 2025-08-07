@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.settings {
+  padding: 10px;
+  text-align: center;
+  background: #2a2a2a;
+  border-bottom: 1px solid #444;
+}
+
+.settings input {
+  width: 50px;
+  margin: 0 10px;
+  background: #444;
+  color: #f0f0f0;
+  border: none;
+  padding: 4px;
+}
+
+.settings button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: #555;
+  color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}
+
+.timer-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer {
+  font-size: 128px;
+  font-weight: bold;
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #414141;
+}
+
+#showSettingsBtn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #2c2c2c;
+  color: #777777;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 8px;
+}
