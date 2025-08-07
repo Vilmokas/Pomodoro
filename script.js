@@ -40,7 +40,7 @@ function startInterval(duration) {
       if (!isBreak) {
         currentSession++;
         if (currentSession >= sessions) {
-          isBreak = true;
+          body.classList.add("light-mode");
           document.getElementById("status").textContent = "All sessions done!";
           return;
         }
